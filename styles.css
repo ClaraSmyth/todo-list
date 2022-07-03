@@ -1,3 +1,30 @@
 body {
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+}
+
+.header {
+    padding: 1rem;
     background-color: gray;
+}
+
+.main {
+    padding: 1rem;
+}
+
+.footer {
+    position: absolute;
+    right: 16px;
+    bottom: 0;
 }
