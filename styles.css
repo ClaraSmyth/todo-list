@@ -15,12 +15,35 @@ body {
 }
 
 .header {
-    padding: 1rem;
+    padding: 1.5rem;
     background-color: gray;
 }
 
+.header-nav-list {
+    list-style: none;
+}
+
 .main {
-    padding: 1rem;
+    position: relative;
+    padding: 1.5rem;
+}
+
+.todo-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 1rem;
+    border: 1px solid black;
+}
+
+.todo-card-title {
+    margin-right: auto;
+}
+
+.todo-create {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
 }
 
 .footer {

@@ -14,20 +14,30 @@
         <header class="header">
             <h1 class="header-title">Todo-List</h1>
             <nav class="header-nav">
+                <h3>Home</h3>
                 <ul class="header-nav-list">
-                    <li class="header-nav-item">Today</li>
-                    <li class="header-nav-item">Upcoming</li>
-                    <li class="header-nav-item">Lists</li>
-                    <li class="header-nav-item">New List</li>
+                    <li class="header-nav-item"><a href="#">Today</a></li>
+                    <li class="header-nav-item"><a href="#">Upcoming</a></li>
+                    <li class="header-nav-item"><a href="#">General</a></li>
+                    <li class="header-nav-item"><a href="#">Trash</a></li>
                 </ul>
             </nav>
         </header>
 
         <main class="main">
             <div class="main-container">
-                <h2>Todo-Title</h2>
-                <p>Todo-Desc</p>
-                <div>Todo-Content</div>
+                <h2 class="project-title">General</h2>
+                <p class="project-desc">A general list of random todos.</p>
+                <div class="todo-container">
+                    <div class="todo-card">
+                        <input class="todo-card-input" type="checkbox">
+                        <p class="todo-card-title">Title</p>
+                        <p class="todo-card-date">Date</p>
+                        <button class="todo-card-edit">Edit</button>
+                        <button class="todo-card-delete">X</button>
+                    </div>
+                </div>
+                <button class="todo-create">+</button>
             </div>
         </main>
 
