@@ -14,6 +14,10 @@ body {
     grid-template-columns: 250px 1fr;
 }
 
+/*##############################
+            HEADER
+##############################*/
+
 .header {
     padding: 1.5rem;
     background-color: gray;
@@ -22,6 +26,10 @@ body {
 .header-nav-list {
     list-style: none;
 }
+
+/*##############################
+            MAIN
+##############################*/
 
 .main {
     position: relative;
@@ -45,6 +53,42 @@ body {
     top: 1.5rem;
     right: 1.5rem;
 }
+
+/*##############################
+            MODAL
+##############################*/
+
+.modal {
+    position: absolute;
+    background-color: hsla(0, 0%, 0%, .3);
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-form {
+    position: relative;
+    background-color: white;
+    border: 1px solid black;
+    padding: 1rem;
+}
+
+.modal-form-close {
+position: absolute;
+top: 0;
+right: 0;
+}
+
+.display-none {
+    display: none;
+}
+
+/*##############################
+            FOOTER
+##############################*/
 
 .footer {
     position: absolute;
