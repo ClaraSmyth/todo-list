@@ -21,6 +21,7 @@ body {
 .header {
     padding: 1.5rem;
     background-color: gray;
+    /* position: fixed; */
 }
 
 .header-nav-list {
