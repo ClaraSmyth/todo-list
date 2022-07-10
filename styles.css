@@ -36,7 +36,8 @@ body {
     padding: 1.5rem;
 }
 
-.todo-card {
+.todo-card,
+.project-card {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -44,7 +45,8 @@ body {
     border: 1px solid black;
 }
 
-.todo-card-title {
+.todo-card-title,
+.project-card-title {
     margin-right: auto;
 }
 
@@ -77,9 +79,9 @@ body {
 }
 
 .modal-form-close {
-position: absolute;
-top: 0;
-right: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .display-none {
