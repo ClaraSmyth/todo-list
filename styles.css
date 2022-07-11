@@ -11,7 +11,8 @@ body {
     height: 100vh;
     border: 1px solid black;
     display: grid;
-    grid-template-columns: 250px 1fr;
+    grid-template-columns: max-content 1fr;
+    grid-template-areas: 'nav main';
 }
 
 /*##############################
@@ -19,13 +20,32 @@ body {
 ##############################*/
 
 .header {
+    grid-area: nav;
     padding: 1.5rem;
     background-color: gray;
-    /* position: fixed; */
+    width: 250px;
 }
 
 .header-nav-list {
     list-style: none;
+}
+
+@media screen and (max-width: 800px) {
+    .header {
+        position: fixed;
+        top: 96px;
+        bottom: 0;
+        z-index: 100;
+        transform: translateX(-250px);
+    }
+
+    .header.is-active {
+        transform: translateX(0px);
+    }
+
+    .header-title {
+        display: none;
+    }
 }
 
 /*##############################
@@ -33,14 +53,20 @@ body {
 ##############################*/
 
 .main {
+    grid-area: main;
     position: relative;
-    padding: 1.5rem;
 }
 
 .mobile-header {
     display: flex;
     gap: 1rem;
     align-items: center;
+    padding: 1.5rem;
+    background-color: red;
+}
+
+.main-container {
+    padding: 1.5rem;
 }
 
 .mobile-nav-btn {
