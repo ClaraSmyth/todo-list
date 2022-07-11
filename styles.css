@@ -37,6 +37,23 @@ body {
     padding: 1.5rem;
 }
 
+.mobile-header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.mobile-nav-btn {
+    padding: 0;
+    border: none;
+    background: gray;
+    height: 32px;
+}
+
+.mobile-nav-btn svg {
+    display: block;
+}
+
 .todo-card,
 .project-card {
     display: flex;
