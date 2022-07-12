@@ -11,7 +11,6 @@ body {
 }
 
 .content-container {
-    position: relative;
     width: 100%;
     height: 100vh;
     display: grid;
@@ -23,7 +22,6 @@ body {
 
 @media screen and (min-width: 1000px) {
     .content-container {
-        outline: 1px solid black;
         width: 80vw;
         height: 80vh;
         max-width: 1200px;
@@ -95,6 +93,13 @@ body {
     position: relative;
 }
 
+.main button {
+    padding: 0;
+    border: none;
+    background: none;
+    height: 24px;
+}
+
 .mobile-header {
     display: none;
 }
@@ -104,9 +109,6 @@ body {
 }
 
 .mobile-nav-btn {
-    padding: 0;
-    border: none;
-    background: none;
     height: 32px;
 }
 
@@ -114,13 +116,19 @@ body {
     display: block;
 }
 
+.todo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
 .todo-card,
 .project-card {
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 0 1rem;
-    border: 1px solid black;
+    padding: 1rem 1rem;
+    background-color: var(--clr-one);
 }
 
 .todo-card-title,
@@ -155,6 +163,7 @@ body {
 
 .modal {
     position: absolute;
+    inset: 0;
     background-color: hsla(0, 0%, 0%, .3);
     width: 100vw;
     height: 100vh;
@@ -189,4 +198,14 @@ body {
     position: absolute;
     right: 16px;
     bottom: 0;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.footer-link {
+    text-decoration: none;
 }
