@@ -64,13 +64,13 @@ body {
     width: 100%;
 }
 
-/* Media query for mobile nav */
+/* Media query for mobile nav changes */
 @media screen and (max-width: 800px) {
     .header {
         position: fixed;
-        top: 96px;
+        top: 100px;
         bottom: 0;
-        height: calc(100vh - 96px);
+        height: calc(100vh - 100px);
         z-index: 10;
         transform: translateX(-250px);
     }
@@ -93,23 +93,13 @@ body {
     position: relative;
 }
 
-.main button {
-    padding: 0;
-    border: none;
-    background: none;
-    height: 24px;
-}
-
 .mobile-header {
     display: none;
 }
 
 .main-container {
     padding: 1.5rem;
-}
-
-.mobile-nav-btn {
-    height: 32px;
+    height: 100%;
 }
 
 .mobile-nav-btn svg {
@@ -122,6 +112,13 @@ body {
     gap: 1rem;
 }
 
+.todo-create {
+    padding: 0;
+    border: none;
+    background: var(--clr-one);
+    aspect-ratio: 1;
+}
+
 .todo-card,
 .project-card {
     display: flex;
@@ -131,18 +128,20 @@ body {
     background-color: var(--clr-one);
 }
 
+.todo-card button,
+.project-card button {
+    padding: 0;
+    border: none;
+    background: none;
+    aspect-ratio: 1;
+}
+
 .todo-card-title,
 .project-card-title {
     margin-right: auto;
 }
 
-.todo-create {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-}
-
-/* Media query for mobile nav */
+/* Media query for mobile nav changes */
 @media screen and (max-width: 800px) {
     .mobile-header {
         display: flex;
@@ -150,6 +149,11 @@ body {
         align-items: center;
         padding: 1.5rem;
         background-color: var(--clr-one);
+        height: 100px;
+    }
+
+    .main-container {
+        height: calc(100vh - 100px);
     }
 
     .main-container.is-active {
