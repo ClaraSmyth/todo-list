@@ -1,8 +1,13 @@
+:root {
+    --clr-one: hsl(0 0% 100% / 0.5);
+}
+
 body {
     font-size: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
 }
 
 .content-container {
@@ -12,6 +17,18 @@ body {
     display: grid;
     grid-template-columns: max-content 1fr;
     grid-template-areas: 'nav main';
+    background-color: var(--clr-one);
+    overflow: hidden;
+}
+
+@media screen and (min-width: 1000px) {
+    .content-container {
+        outline: 1px solid black;
+        width: 80vw;
+        height: 80vh;
+        max-width: 1200px;
+        max-height: 800px;
+    }
 }
 
 /*##############################
@@ -23,9 +40,9 @@ body {
     display: flex;
     flex-direction: column;
     padding: 1.5rem;
-    background-color: gray;
+    background: hsl(0 0% 100% / 0.5);
     width: 250px;
-    height: 100vh;
+    height: 100%;
 }
 
 .header-nav {
@@ -89,7 +106,7 @@ body {
 .mobile-nav-btn {
     padding: 0;
     border: none;
-    background: gray;
+    background: none;
     height: 32px;
 }
 
@@ -124,7 +141,11 @@ body {
         gap: 1rem;
         align-items: center;
         padding: 1.5rem;
-        background-color: red;
+        background-color: var(--clr-one);
+    }
+
+    .main-container.is-active {
+        transform: translateX(250px);
     }
 }
 
