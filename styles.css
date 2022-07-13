@@ -103,6 +103,13 @@ body {
     display: none;
 }
 
+.mobile-nav-btn {
+    padding: 0;
+    border: none;
+    background: none;
+    aspect-ratio: 1;
+}
+
 .main-container {
     padding: 1.5rem;
     height: 100%;
@@ -114,10 +121,6 @@ body {
     background: var(--clr-one);
     aspect-ratio: 1;
     margin-right: 1rem;
-}
-
-.mobile-nav-btn svg {
-    display: block;
 }
 
 .todo-container {
