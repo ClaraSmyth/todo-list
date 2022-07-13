@@ -15,6 +15,7 @@ body {
     height: 100vh;
     display: grid;
     grid-template-columns: max-content 1fr;
+    grid-template-rows: 100%;
     grid-template-areas: 'nav main';
     background-color: var(--clr-one);
     overflow: hidden;
@@ -35,12 +36,13 @@ body {
 
 .header {
     grid-area: nav;
-    display: flex;
-    flex-direction: column;
     padding: 1.5rem;
     background: hsl(0 0% 100% / 0.5);
     width: 250px;
-    height: 100%;
+}
+
+.header-title {
+    text-align: center;
 }
 
 .header-nav {
@@ -55,8 +57,13 @@ body {
 }
 
 #projects-list {
-    height: 100%;
+    flex-grow: 1;
     overflow-y: scroll;
+}
+
+.header-nav-item>a {
+    text-decoration: none;
+    word-wrap: break-word;
 }
 
 .header-nav-btn {
@@ -70,7 +77,6 @@ body {
         position: fixed;
         top: 100px;
         bottom: 0;
-        height: calc(100vh - 100px);
         z-index: 10;
         transform: translateX(-250px);
     }
