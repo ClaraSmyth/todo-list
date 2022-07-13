@@ -107,19 +107,24 @@ body {
     padding: 0;
     border: none;
     background: none;
-    aspect-ratio: 1;
+    height: 32px;
 }
 
 .main-container {
-    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
     height: 100%;
+    padding: 1.5rem;
 }
 
 .main-container>button {
+    display: inline-flex;
+    align-items: center;
+    height: 24px;
+    width: 24px;
     padding: 0;
     border: none;
     background: var(--clr-one);
-    aspect-ratio: 1;
     margin-right: 1rem;
 }
 
@@ -127,6 +132,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    overflow-y: scroll;
 }
 
 .todo-card,
@@ -143,7 +149,7 @@ body {
     padding: 0;
     border: none;
     background: none;
-    aspect-ratio: 1;
+    height: 24px;
 }
 
 .todo-card-title,
