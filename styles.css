@@ -5,7 +5,8 @@
 
     --clr-bg-primary: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #88a4e8, #77aeeb, #68b6eb, #56bfe8, #4ec7e2, #54cdd8, #65d3cc);
     --clr-bg-accent: hsl(0 0% 100% / 0.5);
-    --clr-bg-btn: hsl(0 0% 0% / 0.15);
+
+    --clr-btn-dark: hsl(0 0% 0% / 0.15);
 }
 
 body {
@@ -78,17 +79,20 @@ body {
 
 .header-nav-item>a {
     display: flex;
-    align-items: center;
     gap: 0.2rem;
+    word-break: break-word;
     color: inherit;
     text-decoration: none;
-    word-wrap: break-word;
     padding: 0.2rem 0.5rem;
 }
 
+.header-nav-item>a>svg {
+    min-width: 24px;
+}
+
 .header-nav-item>a:hover {
-    border-radius: 100vmax;
-    background-color: var(--clr-bg-btn);
+    border-radius: 1rem;
+    background-color: var(--clr-btn-dark);
 }
 
 .header-nav-btn {
@@ -98,7 +102,7 @@ body {
     gap: 0.2rem;
     width: 100%;
     padding: 0.2rem;
-    background-color: var(--clr-bg-btn);
+    background-color: var(--clr-btn-dark);
     border: none;
     border-radius: 100vmax;
 }
@@ -195,6 +199,7 @@ body {
 
 .todo-card-title,
 .project-card-title {
+    word-break: break-word;
     margin-right: auto;
 }
 
@@ -332,5 +337,8 @@ body {
 }
 
 .footer-link {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
     text-decoration: none;
 }
