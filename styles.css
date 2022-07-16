@@ -14,22 +14,6 @@
     --shadow-primary: 0 0 15px hsl(0 0% 0% / .3);
 }
 
-/* *::-webkit-scrollbar {
-    width: 10px;
-}
-
-*::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-*::-webkit-scrollbar-thumb {
-    background: #888;
-}
-
-*::-webkit-scrollbar-thumb:hover {
-    background: #555;
-} */
-
 body {
     font-size: var(--fs-primary);
     font-family: 'Roboto', sans-serif;
@@ -208,6 +192,7 @@ body {
     flex-direction: column;
     gap: 1rem;
     overflow-y: auto;
+    overflow: overlay;
 }
 
 .todo-card,
