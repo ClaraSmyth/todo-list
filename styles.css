@@ -240,6 +240,7 @@ body {
     gap: 1rem;
 }
 
+.project-type,
 .project-controls > button {
     font-weight: var(--fw-700);
     display: flex;
@@ -252,6 +253,7 @@ body {
     cursor: pointer;
 }
 
+.project-type:hover,
 .project-controls > button:hover {
     background-color: var(--clr-btn-primary);
 }
@@ -484,10 +486,6 @@ body {
     color: red;
 }
 
-.display-none {
-    display: none;
-}
-
 @supports (backdrop-filter: blur(2rem)) {
     .modal {
         background-color: hsl(0 0% 0% / 0);
@@ -515,4 +513,10 @@ body {
 
 .footer-link:hover {
     color: white;
+}
+
+/* Display none utility */
+
+.display-none {
+    display: none;
 }
