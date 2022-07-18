@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
 :root {
-    --fs-300: 0.5rem;
+    --fs-300: 0.7rem;
     --fs-400: 1rem;
     --fs-500: 1.3rem;
     --fs-700: 2rem;
@@ -31,6 +31,7 @@
     );
 
     --clr-btn-dark: hsl(0 0% 0% / 0.15);
+    --clr-important: hsl(0 100% 50% / 0.4);
 
     --shadow-primary: 0 0 15px hsl(0 0% 0% / 0.3);
 }
@@ -252,19 +253,32 @@ body {
 
 .todo-card,
 .project-card {
+    position: relative;
     display: grid;
     align-items: center;
     grid-template-columns: max-content 1fr max-content;
     grid-auto-flow: column;
     grid-auto-columns: max-content;
     gap: 1rem;
-    padding: 1rem;
+    padding: 1.2rem;
     background-color: var(--clr-bg-accent);
     border-radius: 1rem;
 }
 
 .project-card {
     grid-template-columns: 1fr max-content;
+}
+
+.todo-card-important {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: var(--fs-300);
+    font-weight: var(--fw-700);
+    pointer-events: none;
+    background-color: var(--clr-important);
+    padding: 0 1rem;
+    border-radius: 1rem 0 1rem 0;
 }
 
 .todo-card-title,
