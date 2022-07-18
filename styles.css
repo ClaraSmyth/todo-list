@@ -13,6 +13,7 @@
     --font-clr-primary: hsl(0 0% 0% / 1);
     --font-clr-secondary: hsl(0 0% 0% / 1);
 
+    --clr-bg-accent: hsl(0 0% 100% / 0.5);
     --clr-bg-primary: linear-gradient(
         to right top,
         #d16ba5,
@@ -28,7 +29,6 @@
         #54cdd8,
         #65d3cc
     );
-    --clr-bg-accent: hsl(0 0% 100% / 0.5);
 
     --clr-btn-dark: hsl(0 0% 0% / 0.15);
 
