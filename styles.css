@@ -33,10 +33,11 @@
     --clr-btn-primary: hsl(0 0% 0% / 0.15);
     --clr-btn-accent: hsl(0 0% 0% / 0.3);
     --clr-btn-focus: hsl(176 56% 61%);
+    --clr-btn-checkbox: hsl(120 72% 44%);
 
     --clr-important: hsl(0 100% 50% / 0.4);
 
-    --shadow-primary: 0 0 15px hsl(0 0% 0% / 0.15);
+    --shadow-primary: 0 0 15px hsl(0 0% 0% / 0.25);
 }
 
 body {
@@ -153,6 +154,10 @@ body {
     cursor: pointer;
 }
 
+.header-nav-btn:hover {
+    background-color: var(--clr-btn-accent);
+}
+
 /* Media query for mobile nav changes */
 @media screen and (max-width: 800px) {
     .header {
@@ -245,7 +250,6 @@ body {
     border-radius: 100vmax;
     background: var(--clr-bg-accent);
     cursor: pointer;
-    box-shadow: var(--shadow-primary);
 }
 
 .project-controls > button:hover {
@@ -302,6 +306,12 @@ body {
     background-color: var(--clr-btn-primary);
     padding: 0 1rem;
     border-radius: 0 0 1rem 1rem;
+}
+
+.todo-card-input {
+    width: 1rem;
+    height: 1rem;
+    accent-color: var(--clr-btn-checkbox);
 }
 
 .todo-card-title,
@@ -495,15 +505,14 @@ body {
     bottom: 0;
 }
 
-.footer-content {
-    display: flex;
-    align-items: center;
-    gap: 0.2rem;
-}
-
 .footer-link {
     display: flex;
     align-items: center;
     gap: 0.2rem;
     text-decoration: none;
+    color: inherit;
+}
+
+.footer-link:hover {
+    color: white;
 }
