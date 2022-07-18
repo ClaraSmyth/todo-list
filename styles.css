@@ -30,10 +30,13 @@
         #65d3cc
     );
 
-    --clr-btn-dark: hsl(0 0% 0% / 0.15);
+    --clr-btn-primary: hsl(0 0% 0% / 0.15);
+    --clr-btn-accent: hsl(0 0% 0% / 0.3);
+    --clr-btn-focus: hsl(176 56% 61%);
+
     --clr-important: hsl(0 100% 50% / 0.4);
 
-    --shadow-primary: 0 0 15px hsl(0 0% 0% / 0.1);
+    --shadow-primary: 0 0 15px hsl(0 0% 0% / 0.15);
 }
 
 body {
@@ -133,7 +136,7 @@ body {
 
 .header-nav-item > a:hover {
     border-radius: 1rem;
-    background-color: var(--clr-btn-dark);
+    background-color: var(--clr-btn-primary);
 }
 
 .header-nav-btn {
@@ -144,7 +147,7 @@ body {
     gap: 0.2rem;
     width: 100%;
     padding: 0.2rem;
-    background-color: var(--clr-btn-dark);
+    background-color: var(--clr-btn-primary);
     border: none;
     border-radius: 100vmax;
     cursor: pointer;
@@ -223,7 +226,7 @@ body {
 }
 
 .project-title-container > button:hover {
-    background-color: var(--clr-btn-dark);
+    background-color: var(--clr-btn-primary);
 }
 
 .project-controls {
@@ -246,10 +249,11 @@ body {
 }
 
 .project-controls > button:hover {
-    background-color: var(--clr-btn-dark);
+    background-color: var(--clr-btn-primary);
 }
 
-.todo-container {
+.todo-container,
+.project-container {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -295,7 +299,7 @@ body {
     font-size: var(--fs-300);
     font-weight: var(--fw-700);
     pointer-events: none;
-    background-color: var(--clr-btn-dark);
+    background-color: var(--clr-btn-primary);
     padding: 0 1rem;
     border-radius: 0 0 1rem 1rem;
 }
@@ -329,8 +333,8 @@ body {
 .todo-btn-container > button:hover,
 .project-btn-container > button:hover {
     border-radius: 100vmax;
-    background-color: var(--clr-btn-dark);
-    outline: 5px solid var(--clr-btn-dark);
+    background-color: var(--clr-btn-primary);
+    outline: 5px solid var(--clr-btn-primary);
 }
 
 /* Media query for mobile nav changes */
@@ -375,23 +379,24 @@ body {
 .modal {
     position: absolute;
     inset: 0;
-    background-color: hsla(0, 0%, 0%, 0.3);
     width: 100vw;
     height: 100vh;
     z-index: 100;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: hsl(0 0% 0% / 0.3);
 }
 
 .modal-form {
     position: relative;
     background-color: white;
-    border: 1px solid black;
-    padding: 1rem;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-primary);
 }
 
 .modal-form-fieldset {
@@ -403,6 +408,13 @@ body {
 
 .modal-form-fieldset > input {
     margin-bottom: 1rem;
+    padding: 0 0.5rem;
+    border: 2px solid var(--clr-btn-primary);
+    border-radius: 100vmax;
+}
+
+.modal-form-fieldset > input:focus {
+    outline: 2px solid var(--clr-btn-focus);
 }
 
 .modal-form-legend {
@@ -411,24 +423,66 @@ body {
     font-weight: bold;
     width: 100%;
     text-align: center;
+    font-size: var(--fs-500);
 }
 
 .modal-form-prio-label {
     justify-self: center;
 }
 
+.modal-form-date-input {
+    text-align: center;
+}
+
+.modal-form-desc-input {
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
+    border: 2px solid var(--clr-btn-primary);
+    border-radius: 1rem;
+    resize: vertical;
+}
+
+.modal-form-desc-input:focus {
+    outline: 2px solid var(--clr-btn-focus);
+}
+
+.modal-form-submit {
+    border-radius: 100vmax;
+    border: none;
+    background-color: var(--clr-btn-primary);
+    cursor: pointer;
+    font-weight: var(--fw-700);
+}
+
+.modal-form-submit:hover {
+    background-color: var(--clr-btn-accent);
+}
+
 .modal-form-close {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 0.5rem;
+    right: 0.5rem;
     padding: 0;
     border: none;
-    background: red;
+    background: none;
     aspect-ratio: 1;
+    border-radius: 100vmax;
+    cursor: pointer;
+}
+
+.modal-form-close:hover {
+    color: red;
 }
 
 .display-none {
     display: none;
+}
+
+@supports (backdrop-filter: blur(2rem)) {
+    .modal {
+        background-color: hsl(0 0% 0% / 0);
+        backdrop-filter: blur(2rem);
+    }
 }
 
 /*##############################
