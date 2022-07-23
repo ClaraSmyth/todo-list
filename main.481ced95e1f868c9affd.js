@@ -2720,57 +2720,24 @@ function addDays(dirtyDate, dirtyAmount) {
 
 
 const LOCAL_STORAGE_TODO_KEY = 'todolist.todos';
-const todos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_TODO_KEY)) || [];
-// const todos = [
-//     {
-//         type: 'General',
-//         checked: false,
-//         title: 'Todo-Title',
-//         date: '2022-07-20',
-//         isImportant: true,
-//         isTrash: false,
-//     },
-//     {
-//         type: 'General',
-//         checked: false,
-//         title: 'Todo-Title2',
-//         date: '2022-07-21',
-//         isImportant: false,
-//         isTrash: false,
-//     },
-//     {
-//         type: '0',
-//         checked: false,
-//         title: 'Todo-Title3',
-//         date: '2022-07-22',
-//         isImportant: false,
-//         isTrash: false,
-//     },
-//     {
-//         type: 'General',
-//         checked: false,
-//         title: 'Todo-Title4',
-//         date: '2022-07-22',
-//         isImportant: true,
-//         isTrash: false,
-//     },
-//     {
-//         type: 'General',
-//         checked: false,
-//         title: 'Trash-Todo',
-//         date: '2022-07-22',
-//         isImportant: false,
-//         isTrash: true,
-//     },
-//     { type: 'General', checked: false, title: 'Todo-Title', date: '2022-07-20', isImportant: false, isTrash: false },
-//     { type: 'General', checked: false, title: 'Todo-Title', date: '2022-07-20', isImportant: false, isTrash: false },
-//     { type: 'General', checked: false, title: 'Todo-Title', date: '2022-07-20', isImportant: false, isTrash: false },
-//     { type: 'General', checked: false, title: 'Todo-Title', date: '2022-07-20', isImportant: false, isTrash: false },
-//     { type: 'General', checked: false, title: 'Todo-Title', date: '2022-07-20', isImportant: false, isTrash: false },
-//     { type: 'General', checked: false, title: 'Todo-Title', date: '2022-07-20', isImportant: false, isTrash: false },
-//     { type: 'General', checked: false, title: 'Todo-Title', date: '2022-07-20', isImportant: false, isTrash: false },
-//     { type: 'General', checked: false, title: 'Todo-Title', date: '2022-07-20', isImportant: false, isTrash: false },
-// ];
+const todos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_TODO_KEY)) || [
+    {
+        type: 'General',
+        checked: false,
+        title: 'Welcome to my Todo App! 😃',
+        date: '1000-01-01',
+        isImportant: true,
+        isTrash: false,
+    },
+    {
+        type: '0',
+        checked: false,
+        title: 'Go to the store',
+        date: format(new Date(todo.date), 'dd/MM/y'),
+        isImportant: false,
+        isTrash: false,
+    },
+];
 
 const saveTodos = () => {
     localStorage.setItem(LOCAL_STORAGE_TODO_KEY, JSON.stringify(todos));
@@ -2910,33 +2877,13 @@ const getDates = () => {
 
 
 const LOCAL_STORAGE_PROJECTS_KEY = 'todolist.projects';
-const projects = JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECTS_KEY)) || [];
-// const projects = [
-//     {
-//         title: 'Project-Title',
-//         desc: 'Project One',
-//         isTrash: false,
-//     },
-//     {
-//         title: 'Project-Title2',
-//         desc: 'Project Two',
-//         isTrash: true,
-//     },
-//     {
-//         title: 'Project-Title3',
-//         desc: 'Project Three',
-//         isTrash: false,
-//     },
-//     { title: 'Test1', desc: 'Project Three', isTrash: false },
-//     { title: 'Test2', desc: 'Project Three', isTrash: false },
-//     { title: 'Test3', desc: 'Project Three', isTrash: false },
-//     { title: 'Test4', desc: 'Project Three', isTrash: false },
-//     { title: 'Test5', desc: 'Project Three', isTrash: false },
-//     { title: 'Test6', desc: 'Project Three', isTrash: false },
-//     { title: 'Test7', desc: 'Project Three', isTrash: false },
-//     { title: 'Test8', desc: 'Project Three', isTrash: false },
-//     { title: 'Test9', desc: 'Project Three', isTrash: false },
-// ];
+const projects = JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECTS_KEY)) || [
+    {
+        title: 'Demo Project',
+        desc: 'This is a demo project with some filler content, feel free to remove it!',
+        isTrash: false,
+    },
+];
 
 const saveProjects = () => {
     localStorage.setItem(LOCAL_STORAGE_PROJECTS_KEY, JSON.stringify(projects));
