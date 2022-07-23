@@ -2733,7 +2733,7 @@ const todos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_TODO_KEY)) || [
         type: '0',
         checked: false,
         title: 'Go to the store',
-        date: format(new Date(todo.date), 'dd/MM/y'),
+        date: format(new Date(), 'yyyy-MM-dd'),
         isImportant: false,
         isTrash: false,
     },
