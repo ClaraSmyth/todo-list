@@ -2719,6 +2719,7 @@ function eachDayOfInterval(dirtyInterval, options) {
 
 
 
+
 const LOCAL_STORAGE_TODO_KEY = 'todolist.todos';
 const todos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_TODO_KEY)) || [
     {
@@ -2842,15 +2843,25 @@ const removeTodo = (todo) => {
     }
 };
 
-const removeAllProjectTodos = (project) => {
-    todos.forEach((todo, index) => {
-        if (todo.type == project.iD) {
-            todos.splice(index, 1);
-        }
+const updateAllProjectTodos = (project) => {
+    todos.forEach((todo) => {
+        if (todo.type == project.iD) todo.isTrash = true;
     });
 };
 
+const removeAllProjectTodos = (project) => {
+    let i = todos.length;
+    while (i--) {
+        const todo = todos[i];
+        if (todo.type == project.iD) {
+            todos.splice(todo.index, 1);
+        }
+    }
+    renderTodos();
+};
+
 const restoreTodo = (todo) => {
+    if (typeof parseInt(todo.type) === 'number') restoreProject(projects[parseInt(todo.type)]);
     todos[todo.index].isTrash = false;
     renderTodos();
 };
@@ -2935,6 +2946,7 @@ const projectFactory = (title, desc) => {
 };
 
 const createProject = (title, desc) => {
+    console.log(projects);
     const newProject = projectFactory(title, desc);
     projects.push(newProject);
     renderProjectNav();
@@ -2950,11 +2962,13 @@ const editProject = (project, title, desc) => {
 };
 
 const removeProject = (project, index) => {
+    console.log(project, index);
     if (project.isTrash) {
         removeAllProjectTodos(project);
         projects.splice(index, 1);
         renderTrashProjects();
     } else {
+        updateAllProjectTodos(project);
         project.isTrash = true;
         renderProjectNav();
         buildGeneral();
