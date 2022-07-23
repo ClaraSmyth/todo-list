@@ -2527,6 +2527,50 @@ function isPast(dirtyDate) {
   requiredArgs(1, arguments);
   return toDate(dirtyDate).getTime() < Date.now();
 }
+;// CONCATENATED MODULE: ./node_modules/date-fns/esm/addDays/index.js
+
+
+
+/**
+ * @name addDays
+ * @category Day Helpers
+ * @summary Add the specified number of days to the given date.
+ *
+ * @description
+ * Add the specified number of days to the given date.
+ *
+ * ### v2.0.0 breaking changes:
+ *
+ * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
+ *
+ * @param {Date|Number} date - the date to be changed
+ * @param {Number} amount - the amount of days to be added. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
+ * @returns {Date} - the new date with the days added
+ * @throws {TypeError} - 2 arguments required
+ *
+ * @example
+ * // Add 10 days to 1 September 2014:
+ * const result = addDays(new Date(2014, 8, 1), 10)
+ * //=> Thu Sep 11 2014 00:00:00
+ */
+
+function addDays(dirtyDate, dirtyAmount) {
+  requiredArgs(2, arguments);
+  var date = toDate(dirtyDate);
+  var amount = toInteger(dirtyAmount);
+
+  if (isNaN(amount)) {
+    return new Date(NaN);
+  }
+
+  if (!amount) {
+    // If 0 days, no-op to avoid changing times in the hour before end of DST
+    return date;
+  }
+
+  date.setDate(date.getDate() + amount);
+  return date;
+}
 ;// CONCATENATED MODULE: ./node_modules/date-fns/esm/compareAsc/index.js
 
 
@@ -2671,50 +2715,6 @@ function eachDayOfInterval(dirtyInterval, options) {
 
   return dates;
 }
-;// CONCATENATED MODULE: ./node_modules/date-fns/esm/addDays/index.js
-
-
-
-/**
- * @name addDays
- * @category Day Helpers
- * @summary Add the specified number of days to the given date.
- *
- * @description
- * Add the specified number of days to the given date.
- *
- * ### v2.0.0 breaking changes:
- *
- * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
- *
- * @param {Date|Number} date - the date to be changed
- * @param {Number} amount - the amount of days to be added. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
- * @returns {Date} - the new date with the days added
- * @throws {TypeError} - 2 arguments required
- *
- * @example
- * // Add 10 days to 1 September 2014:
- * const result = addDays(new Date(2014, 8, 1), 10)
- * //=> Thu Sep 11 2014 00:00:00
- */
-
-function addDays(dirtyDate, dirtyAmount) {
-  requiredArgs(2, arguments);
-  var date = toDate(dirtyDate);
-  var amount = toInteger(dirtyAmount);
-
-  if (isNaN(amount)) {
-    return new Date(NaN);
-  }
-
-  if (!amount) {
-    // If 0 days, no-op to avoid changing times in the hour before end of DST
-    return date;
-  }
-
-  date.setDate(date.getDate() + amount);
-  return date;
-}
 ;// CONCATENATED MODULE: ./src/modules/todos.js
 
 
@@ -2732,8 +2732,48 @@ const todos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_TODO_KEY)) || [
     {
         type: '0',
         checked: false,
-        title: 'Go to the store',
+        title: 'Go to the store 🛒',
         date: format(new Date(), 'yyyy-MM-dd'),
+        isImportant: false,
+        isTrash: false,
+    },
+    {
+        type: '0',
+        checked: true,
+        title: 'Take dogs for a walk 🐕',
+        date: format(new Date(), 'yyyy-MM-dd'),
+        isImportant: true,
+        isTrash: false,
+    },
+    {
+        type: '0',
+        checked: false,
+        title: 'Go to the gym 🏋️‍♀️',
+        date: format(new Date(), 'yyyy-MM-dd'),
+        isImportant: true,
+        isTrash: false,
+    },
+    {
+        type: '0',
+        checked: false,
+        title: 'Go to the cinema with friends 🎦',
+        date: format(new Date(), 'yyyy-MM-dd'),
+        isImportant: false,
+        isTrash: true,
+    },
+    {
+        type: '0',
+        checked: false,
+        title: 'Pick up birthday present for friend 🎁',
+        date: format(addDays(new Date(), 3), 'yyyy-MM-dd'),
+        isImportant: true,
+        isTrash: false,
+    },
+    {
+        type: '0',
+        checked: false,
+        title: 'Do some gardening 🏡',
+        date: format(addDays(new Date(), 10), 'yyyy-MM-dd'),
         isImportant: false,
         isTrash: false,
     },
@@ -3144,7 +3184,7 @@ const createTodoCard = (todo) => {
     deleteBtn.addEventListener('click', () => removeTodo(todo));
     btnContainer.append(editBtn, deleteBtn);
 
-    if (isPast(new Date(todo.date))) {
+    if (isPast(addDays(new Date(todo.date), 1))) {
         date.innerText = 'Expired';
         date.classList.add('is-expired');
     }
