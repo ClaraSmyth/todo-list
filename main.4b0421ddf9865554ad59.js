@@ -2946,7 +2946,6 @@ const projectFactory = (title, desc) => {
 };
 
 const createProject = (title, desc) => {
-    console.log(projects);
     const newProject = projectFactory(title, desc);
     projects.push(newProject);
     renderProjectNav();
@@ -2962,7 +2961,6 @@ const editProject = (project, title, desc) => {
 };
 
 const removeProject = (project, index) => {
-    console.log(project, index);
     if (project.isTrash) {
         removeAllProjectTodos(project);
         projects.splice(index, 1);
